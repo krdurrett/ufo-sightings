@@ -23,7 +23,8 @@ class Form extends Component {
     const newSighting = {
       ...this.state
     }
-    this.props.addSighting(newSighting)
+    // this.props.addNewSighting(newSighting)
+    this.props.postSighting(newSighting)
     this.clearInputs()
   }
 
@@ -33,7 +34,7 @@ class Form extends Component {
 
   render() {
     return (
-      <form className='add-sighting'>
+      <form className='add-sighting' onSubmit={event => this.submitSighting(event)}>
         <input
           type='text'
           placeholder='Location'
@@ -48,7 +49,7 @@ class Form extends Component {
           value={this.state.description}
           onChange={event => this.handleChange(event)} 
         />
-        <input type='submit' value="Submit" onSubmit={this.submitSighting}/>
+        <input className='submit' type='submit' value="Submit"/>
       </form>
     )
   }

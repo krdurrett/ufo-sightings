@@ -1,0 +1,15 @@
+.sighting {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(159, 162, 163, 0.8);
+  border-radius: 50%;
+  margin: 10px;
+  height: 30%;
+  width: 25%;
+}
+
+.description {
+  margin: 0 7px 0 7px;
+}

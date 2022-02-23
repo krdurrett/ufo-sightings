@@ -1,0 +1,16 @@
+.add-sighting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10%;
+  width: 80%;
+}
+
+input {
+  height: 50%;
+  width: 40%;
+}
+
+.submit {
+  width: 10%;
+}

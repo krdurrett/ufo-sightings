@@ -3,7 +3,7 @@ import React from 'react';
 import { Component } from 'react';
 import SightingsContainer from './SightingsContainer';
 import Form from './Form';
-import { getAllSightings } from './apiCalls'
+import { getAllSightings, addSighting, deleteSighting } from './apiCalls'
 
 class App extends Component {
   constructor() {
@@ -18,16 +18,22 @@ class App extends Component {
       .then(sightings => this.setState({ sightings: sightings }))
   }
 
-  addSighting = newSighting => {
-    this.setState({ sightings: [...this.state.sightings, newSighting]})
+  postSighting = (newSighting) => {
+    addSighting(newSighting)
+      .then(sighting => this.setState({ sightings: [...this.state.sightings, sighting]}))
+  }
+
+  delSighting = (event) => {
+    deleteSighting(event.target.id)
+      .then(sightings => this.setState({ sightings: sightings}))
   }
 
   render() {
     return (
       <div className='app'>
         <h1 className='title'>I BELIEVE</h1>
-        <Form addSighting={this.addSighting}/>
-        <SightingsContainer sightings={this.state.sightings}/>
+        <Form postSighting={this.postSighting}/>
+        <SightingsContainer sightings={this.state.sightings} delSighting={this.delSighting}/>
       </div>
     )
   }

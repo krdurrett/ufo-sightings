@@ -1,0 +1,12 @@
+.sightings-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow-y: scroll;
+  height: 80%;
+  width: 95%;
+}
+
+.sightings-container::-webkit-scrollbar {
+  display: none;
+}
